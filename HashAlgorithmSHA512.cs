@@ -6,8 +6,9 @@ namespace ConsoleApp2
     {
         public static byte[] HashArray(byte[] array)
         {
-            var shaM = new SHA512Managed();
-            return shaM.ComputeHash(array);
+            using (var shaM = new SHA512Managed()) {
+                return shaM.ComputeHash(array);
+            }
         }
     }
 }
